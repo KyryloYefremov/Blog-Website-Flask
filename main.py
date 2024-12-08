@@ -137,7 +137,7 @@ def register():
             return redirect(url_for("login"))
 
         hashed_password = generate_password_hash(password=register_form.password.data,
-                                                 method="pbkdf2",
+                                                 method="pbkdf2:sha256",
                                                  salt_length=8)
         new_user = User(
             name=register_form.name.data,
